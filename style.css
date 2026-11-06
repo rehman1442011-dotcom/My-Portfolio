@@ -140,7 +140,7 @@ body{
 }
 .skill-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
 }
 .skill-card {
@@ -176,6 +176,11 @@ body{
 }
 .design-icon {
     font-size: 27px;
+}
+.database-icon {
+    font-family: Consolas, monospace;
+    font-size: 17px;
+    letter-spacing: -0.08em;
 }
 .skill-card h3 {
     margin: 0 0 16px;
@@ -356,6 +361,11 @@ position: fixed;
 #contact {
     scroll-margin-top: 80px;
 }
+@media (max-width: 850px) {
+    .skill-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 @media (max-width: 600px) {
     html {
         font-size: 90%;
@@ -393,17 +403,21 @@ position: fixed;
         padding: 36px 0 44px;
     }
     .hero-profile {
-        flex-wrap: nowrap;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) clamp(84px, 25vw, 118px);
+        align-items: start;
         gap: 12px;
         margin-bottom: 22px;
     }
     .hero-copy {
-        flex: 1 1 0;
+        grid-column: 1;
         min-width: 0;
     }
     .hero-side-photo {
-        width: clamp(84px, 25vw, 118px);
-        flex: 0 0 clamp(84px, 25vw, 118px);
+        grid-column: 2;
+        grid-row: 1;
+        align-self: start;
+        width: 100%;
         margin: 0;
         border-width: 2px;
         box-shadow: 0 0 0 4px rgba(105, 243, 237, 0.08), 0 0 18px rgba(0, 229, 220, 0.22);
