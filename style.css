@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body{
     min-height: 100vh;
     margin: 0;
@@ -94,6 +100,12 @@ body{
 }
 .intro p {
     margin: 0;
+}
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
 }
 .img{
 position: fixed;
@@ -251,17 +263,75 @@ position: fixed;
     scroll-margin-top: 80px;
 }
 @media (max-width: 600px) {
+    html {
+        font-size: 90%;
+    }
     .navbar {
-        padding: 0 14px;
+        min-height: 0;
+        flex-wrap: wrap;
+        gap: 9px;
+        padding: 11px 14px;
     }
     .nav-name {
         font-size: 16px;
         letter-spacing: 0.03em;
     }
     .nav-links {
-        gap: 12px;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px 14px;
+        margin-left: 0;
+        order: 2;
     }
     .nav-links a {
-        font-size: 12px;
+        font-size: 13px;
+    }
+    .page-content {
+        width: calc(100% - 32px);
+        padding: 36px 0 44px;
+    }
+    .Name,
+    .LastName {
+        font-size: clamp(2.45rem, 12vw, 3.6rem);
+    }
+    .Skillh1 {
+        margin-top: 16px;
+    }
+    .intro {
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+    .actions {
+        margin-top: 14px;
+    }
+    .education-section,
+    .contact-section {
+        width: 100%;
+        padding: 18px;
+    }
+    .education-section {
+        margin-top: 38px;
+    }
+    .education-section h2,
+    .contact-section h2 {
+        font-size: 1.7rem;
+    }
+    .education-section p:not(.section-kicker),
+    .contact-section p:not(.section-kicker) {
+        font-size: 0.94rem;
+        line-height: 1.65;
+    }
+    .contact-section p:not(.section-kicker) {
+        display: grid;
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 8px;
+    }
+    .contact-section a {
+        overflow-wrap: anywhere;
+    }
+    .btn {
+        padding: 10px 16px;
+        font-size: 13px;
     }
 }
