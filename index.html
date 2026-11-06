@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Website</title>
+</head>
+
+<body id="top">
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="nav-name" href="#top">Abdul Rehman</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+       
+    </nav>
+    <main class="page-content">
+    <div class="Name">
+        <h1>Abdul
+        </h1>
+
+    </div>
+    <div class="LastName">
+        <h1>Rehman</h1>
+    </div>
+    <div class="Skillh1">
+        <h2>
+            Associate Engineer
+        </h2>
+
+    </div>
+    <div class="Skills" id="skills">
+        <p><b>I am a <span class="role-text" id="role-text">Web Developer</span></b></p>
+    </div>
+    <div class="intro" id="about">
+        <p>
+            I build fast web tools with HTML, CSS and JavaScript, and </p>
+        <p> I keep computer labs running: Windows setups,hardware </p>
+        <p> and software fixes, and day-to-day tech support.
+        </p>
+    </div>
+   
+    <div class="actions">
+        <a class="btn" href="#contact">Contact Me</a>
+    </div>
+    <section class="education-section" id="education">
+        <p class="section-kicker">MY BACKGROUND</p>
+        <h2>Education</h2>
+        <p>I am a Computer Information Technology diploma student seeking an entry-level position where I can contribute to a team and gain practical experience in IT support, web development, or a related field.</p>
+        <p>I enjoy solving hands-on problems and coding challenges, and I work well with people.</p>
+    </section>
+    <section class="contact-section" id="contact">
+        <p class="section-kicker">GET IN TOUCH</p>
+        <h2>Contact</h2>
+        <p><span>Email</span><a href="mailto:rehman.dev04@gmail.com">rehman.dev04@gmail.com</a></p>
+        <p><span>Phone</span><a href="tel:+923255573201">+923255573201</a></p>
+    </section>
+    </main>
+    <script>
+        const roles = ["Web Developer", "Graphic Designer", "Lab Assistant" ,"Database Administrator"];
+        const roleText = document.getElementById("role-text");
+        let roleIndex = 0;
+
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            window.setInterval(() => {
+                roleText.classList.add("is-changing");
+
+                window.setTimeout(() => {
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    roleText.replaceChildren(...roles[roleIndex].split(" ").map((word, index) => {
+                        const wordElement = document.createElement("span");
+                        wordElement.className = "role-word";
+                        wordElement.textContent = word;
+                        wordElement.style.animationDelay = `${index * 0.12}s`;
+                        return wordElement;
+                    }));
+                    roleText.classList.remove("is-changing");
+                }, 250);
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>
